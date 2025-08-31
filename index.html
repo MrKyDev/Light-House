@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('./img/bg.png');">
+    <div class="w-full max-w-5xl flex flex-col md:flex-row bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden">
+        
+        <!-- Left Side (Text Section) -->
+        <div class="flex-1 p-10 text-white flex flex-col justify-center bg-gradient-to-b from-black/60 to-black/30">
+            <h1 class="text-5xl font-bold mb-4">LIGHT  HOUSE</h1>
+            <p class="text-lg mb-4">Illuminate Your World.</p>
+            <p class="text-sm max-w-md">Where your light and vision become a reality.</p>
+        </div>
+        
+        <!-- Right Side (Login Form) -->
+        <div class="flex-1 p-8 flex items-center justify-center">
+            <div class="w-full max-w-md bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-6 text-center">Sign In</h2>
+                
+                <!-- Email -->
+                <div class="mb-4">
+                    <label class="block mb-1 text-gray-700">Username</label>
+                    <input type="email" placeholder="Enter your username" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+                
+                <!-- Password -->
+                <div class="mb-4">
+                    <label class="block mb-1 text-gray-700">Password</label>
+                    <input type="password" placeholder="Enter your password" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+                
+                <!-- Forgot Password -->
+                <div class="text-right mb-4">
+                    <a href="#" class="text-blue-500 text-sm hover:underline">Forgot password?</a>
+                </div>
+                
+                <!-- Sign In Button -->
+                <a href="./admin/admin.html" class="block text-center w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">SIGN IN</a>
+                
+                <!-- OR Divider -->
+                <div class="flex items-center my-4">
+                    <hr class="flex-1 border-gray-300">
+                    <span class="px-2 text-gray-500">or</span>
+                    <hr class="flex-1 border-gray-300">
+                </div>
+                
+                <!-- Google Sign-In -->
+                <button class="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition">
+                    <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" class="w-5 h-5">
+                    Sign in with Google
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
