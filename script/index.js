@@ -11,3 +11,20 @@ function login() {
                 alert("Invalid username or password!");
             }
         }
+
+// profile drop down menu
+// Toggle Dropdown
+   const userMenuButton = document.getElementById('userMenuButton');
+    const userDropdown = document.getElementById('userDropdown');
+
+    // Toggle dropdown on click
+    userMenuButton.addEventListener('click', () => {
+      userDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', (e) => {
+      if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.classList.add('hidden');
+      }
+    });
