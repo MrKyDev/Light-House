@@ -7,11 +7,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.png">
   <link rel="stylesheet" href="./style/admin.css">
 </head>
 <body class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans">
-
-  <!-- Navbar (matches your screenshot) -->
   <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white shadow-md">
     <div class="flex items-center gap-4">
       <button id="openSidebar" class="text-2xl text-gray-700"><i class="fa-solid fa-bars"></i></button>
@@ -21,23 +20,42 @@
                class="w-56 sm:w-72 md:w-96 pl-10 pr-4 py-2 rounded-xl border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
       </div>
     </div>
-    <div class="flex items-center gap-6">
-      <div class="hidden sm:flex gap-2" bg:black>
-        <button class="chip" data-jump="#dashboardSec">Dashboard</button>
-        <button class="chip" data-jump="#productsSec">All Products</button>
-        <button class="chip" data-jump="#inventorySec">Inventory</button>
-        <button class="chip">Orders</button>
-        <button class="chip">Sales report</button>
-      </div>
-      <div class="flex items-center gap-3">
-        <img src="/img/admin.png"
-             class="w-10 h-10 rounded-full border-2 border-yellow-400 shadow-md" alt="Admin"/>
-        <div class="hidden md:block">
-          <p class="font-semibold">Admin Name</p>
-          <p class="text-sm text-gray-500">@admin</p>
-        </div>
-      </div>
+    <div class="flex items-center justify-between px-4 py-2 bg-white shadow-sm rounded-xl">
+  <!-- Navigation Buttons -->
+  <div class="hidden sm:flex gap-3">
+    <a href="#dashboardSec"
+       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
+       Dashboard
+    </a>
+    <a href="#productsSec"
+       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
+       All Products
+    </a>
+    <a href="#inventorySec"
+       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
+       Inventory
+    </a>
+    <button
+       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
+       Orders
+    </button>
+    <button
+       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
+       Sales Report
+    </button>
+  </div>
+
+  <!-- Admin Profile -->
+  <div class="flex items-center gap-3">
+    <img src="/img/admin.png"
+         class="w-9 h-9 rounded-full border-2 border-yellow-400 shadow-sm" alt="Admin"/>
+    <div class="hidden md:block">
+      <p class="font-semibold text-gray-800">Admin Name</p>
+      <p class="text-xs text-gray-500">@admin</p>
     </div>
+  </div>
+</div>
+
   </header>
 
   <!-- Sidebar + overlay (like your screenshot) -->
@@ -51,7 +69,7 @@
       <button class="flex items-center gap-3 hover:text-yellow-400" data-jump="#dashboardSec"><i class="fa-solid fa-house"></i> Admin Dashboard</button>
       <button class="flex items-center gap-3 hover:text-yellow-400" data-jump="#productsSec"><i class="fa-solid fa-book"></i> Products</button>
       <button class="flex items-center gap-3 hover:text-yellow-400" data-jump="#inventorySec"><i class="fa-solid fa-boxes-stacked"></i> Inventory</button>
-      <a href="./index.html" class="flex items-center gap-3 hover:text-yellow-400"><i class="fa-solid fa-gear"></i> Log out</a>
+      <a href="/index.html" class="flex items-center gap-3 hover:text-yellow-400"><i class="fa-solid fa-gear"></i> Log out</a>
     </nav>
   </aside>
 
