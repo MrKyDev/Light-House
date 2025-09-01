@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
+  <title>Admin Dashboard - Product</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -54,109 +54,77 @@
     <div class="bg-white px-6 py-3 flex flex-wrap gap-3 shadow-sm">
       <a href="../admin.html" class="px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition">Dashboard</a>
       <a href="../products/product.html" class="px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition">All Products</a>
-      <button class="px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition">Inventory</button>
+      <a href="../inventory/inventory.html" class="px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition">Inventory</a>
       <button class="px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition">Orders</button>
       <button class="px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition">Sales Report</button>
     </div>
 
     <!-- Products Section -->
-    <main class="p-6">
+    <main class="p-6 space-y-10">
       <section class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-md">
         <h2 class="text-3xl font-extrabold mb-8 text-gray-800 text-center">Available Light Bulbs</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          <!-- Product Card -->
-          <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/Led 12w.jpg" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">LED Bulb 12W</h3>
-            <p class="text-gray-600 text-sm">₱150.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 45 pcs</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/smart led.jfif" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">Smart LED Bulb</h3>
-            <p class="text-gray-600 text-sm">₱350.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 20 pcs</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/decorative led.jpg" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">Decorative Bulb</h3>
-            <p class="text-gray-600 text-sm">₱200.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 8 pcs (Low)</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/led tube.jpeg" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">LED Tube Light</h3>
-            <p class="text-gray-600 text-sm">₱250.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 60 pcs</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/vintage.jpg" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">Vintage Edison Bulb</h3>
-            <p class="text-gray-600 text-sm">₱180.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 35 pcs</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/halogen.jpg" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">Halogen Bulb 50W</h3>
-            <p class="text-gray-600 text-sm">₱120.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 50 pcs</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/flood light.jfif" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">Led Flood Light</h3>
-            <p class="text-gray-600 text-sm">₱450.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 22 pcs</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
-           <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform p-5 flex flex-col">
-            <img src="../products/img/outdoor.jpg" alt="LED Bulb" class="mx-auto mb-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-gray-800">Out Door Lamp</h3>
-            <p class="text-gray-600 text-sm">₱550.00</p>
-            <span class="text-green-600 text-sm font-semibold mt-2">Stock: 35 pcs</span>
-            <a href="" class="mt-auto bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Order Product</a>
-          </div>
-
+          <!-- Product Cards ... (keep your existing cards here) -->
         </div>
+      </section>
+
+      <!-- Product Form Section -->
+      <section class="bg-white rounded-xl shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Add / Edit Product</h2>
+        <form action="#" method="POST" class="space-y-5">
+          <!-- Code -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Product Code</label>
+            <input type="text" name="code" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" placeholder="Enter product code">
+          </div>
+          <!-- Name -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Product Name</label>
+            <input type="text" name="name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" placeholder="Enter product name">
+          </div>
+          <!-- Description -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Description</label>
+            <textarea name="description" rows="3" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" placeholder="Enter product description"></textarea>
+          </div>
+          <!-- Category -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Category</label>
+            <select name="category" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none">
+              <option value="">-- Select Category --</option>
+              <option value="LED">LED</option>
+              <option value="Smart">Smart</option>
+              <option value="Decorative">Decorative</option>
+              <option value="Tube">Tube</option>
+              <option value="Vintage">Vintage</option>
+              <option value="Halogen">Halogen</option>
+              <option value="Flood">Flood</option>
+              <option value="Outdoor">Outdoor</option>
+            </select>
+          </div>
+          <!-- Stock -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2">Stock</label>
+            <input type="number" name="stock" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none" placeholder="Enter stock quantity">
+          </div>
+          <!-- Buttons -->
+          <div class="flex justify-end gap-4">
+          <button type="reset" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Reset</button>
+          <button type="button" id="saveProductBtn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Save Product</button>
+        </div>
+
+          </div>
+        </form>
       </section>
     </main>
   </div>
 </div>
 
+
 <!-- Sidebar Script -->
-<script>
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  const openSidebar = document.getElementById('openSidebar');
-  const closeSidebar = document.getElementById('closeSidebar');
-
-  openSidebar.addEventListener('click', () => {
-    sidebar.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
-  });
-
-  closeSidebar.addEventListener('click', () => {
-    sidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-  });
-
-  overlay.addEventListener('click', () => {
-    sidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-  });
+<script src="../script/admin.js">
+ 
 </script>
 </body>
 </html>
