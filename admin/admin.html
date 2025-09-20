@@ -2,220 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LightHouse — Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | LightHouse</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
   <link rel="icon" type="image/x-icon" href="/img/favicon.png">
-  <link rel="stylesheet" href="./style/admin.css">
 </head>
 <body class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans">
+
+  <!-- Navbar -->
   <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white shadow-md">
-    <div class="flex items-center gap-4">
-      <button id="openSidebar" class="text-2xl text-gray-700"><i class="fa-solid fa-bars"></i></button>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-tools text-yellow-500 text-2xl"></i>
+      <h1 class="text-2xl font-extrabold text-gray-800">Admin Panel</h1>
+    </div>
+
+    <!-- Profile + Burger -->
+    <div class="flex items-center gap-4 relative">
+      <!-- Burger Menu (Mobile) -->
+      <button id="burgerBtn" class="md:hidden text-gray-700 text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Profile -->
       <div class="relative">
-        <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-        <input id="globalSearch" type="text" placeholder="Search"
-               class="w-56 sm:w-72 md:w-96 pl-10 pr-4 py-2 rounded-xl border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 transition">
+        <button id="adminMenuButton" class="focus:outline-none">
+          <img src="/img/admin.png" class="w-10 h-10 rounded-full border-2 border-yellow-400 shadow-md cursor-pointer" alt="Admin"/>
+        </button>
+        <div id="adminDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg py-2 z-50">
+          <a href="admin-profile.html" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Edit Profile</a>
+          
+        </div>
       </div>
     </div>
-    <div class="flex items-center justify-between px-4 py-2 bg-white shadow-sm rounded-xl">
-  <!-- Navigation Buttons -->
-  <div class="hidden sm:flex gap-3">
-    <a href="#dashboardSec"
-       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
-       Dashboard
-    </a>
-    <a href="#productsSec"
-       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
-       All Products
-    </a>
-    <a href="#inventorySec"
-       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
-       Inventory
-    </a>
-    <button
-       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
-       Orders
-    </button>
-    <button
-       class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-yellow-400 hover:text-white transition">
-       Sales Report
-    </button>
-  </div>
-
-  <!-- Admin Profile -->
-  <div class="flex items-center gap-3">
-    <img src="/img/admin.png"
-         class="w-9 h-9 rounded-full border-2 border-yellow-400 shadow-sm" alt="Admin"/>
-    <div class="hidden md:block">
-      <p class="font-semibold text-gray-800">Admin Name</p>
-      <p class="text-xs text-gray-500">@admin</p>
-    </div>
-  </div>
-</div>
-
   </header>
 
-  <!-- Sidebar + overlay (like your screenshot) -->
-  <div id="overlay" class="hidden fixed inset-0 bg-black/50 z-30"></div>
-  <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gray-900 text-white -translate-x-full transition-transform duration-300 z-40">
-    <div class="flex justify-between items-center px-6 py-4 border-b border-gray-700">
-      <h1 class="text-xl font-bold">Menu</h1>
-      <button id="closeSidebar" class="text-2xl"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <nav class="flex flex-col items-start px-6 py-6 space-y-6">
-      <button class="flex items-center gap-3 hover:text-yellow-400" data-jump="#dashboardSec"><i class="fa-solid fa-house"></i> Admin Dashboard</button>
-      <button class="flex items-center gap-3 hover:text-yellow-400" data-jump="#productsSec"><i class="fa-solid fa-book"></i> Products</button>
-      <button class="flex items-center gap-3 hover:text-yellow-400" data-jump="#inventorySec"><i class="fa-solid fa-boxes-stacked"></i> Inventory</button>
-      <a href="/index.html" class="flex items-center gap-3 hover:text-yellow-400"><i class="fa-solid fa-gear"></i> Log out</a>
-    </nav>
-  </aside>
+  <!-- Main Layout -->
+  <div class="flex flex-col md:flex-row">
 
-  <!-- Main content wrapper -->
-  <main class="p-4 sm:p-6 space-y-8">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-full md:w-1/5 p-6 bg-white border-r shadow-md hidden md:block">
+      <h2 class="font-semibold text-lg mb-4 text-gray-800">Admin Menu</h2>
+      <ul class="space-y-2 text-gray-700 font-medium">
+  <li>
+    <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-yellow-100 hover:text-yellow-600 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8h8v8H7v-8z" />
+    </svg>Dashboard</a></li>
+  <li>
+    <a href="products.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-yellow-100 hover:text-yellow-600 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2h-3V2H9v2H6a2 2 0 00-2 2v7m16 0h-4m-6 0H4m16 0v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6" />
+    </svg>Manage Products</a></li>
+  <li>
+    <a href="orders.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-yellow-100 hover:text-yellow-600 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M9 3v18m6-18v18M4 21h16" />
+    </svg>Orders</a></li>
+  <li>
+    <a href="users.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-yellow-100 hover:text-yellow-600 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A7 7 0 0112 15a7 7 0 016.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>Users</a></li>
+  <li>
+    <a href="reports.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-yellow-100 hover:text-yellow-600 transition">
+      <!-- Reports Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13v6M9 13h13m-13-4h13V7H9v2z" />
+      </svg>
+      Reports
+    </a>
+  </li>
+  <li>
+    <a href="index.html" class="flex items-center gap-3 px-4 py-2 text-red-600 hover:bg-red-100 rounded-lg transition">
+      <!-- Logout Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1m0-4v-1a2 2 0 012-2h6a2 2 0 012 2v1" />
+      </svg>
+      Log Out
+    </a>
+  </li>
+</ul>
 
-    <!-- ===== Dashboard (matches screenshot) ===== -->
-    <section id="dashboardSec" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <!-- Sales Report Card -->
-      <div class="lg:col-span-2 rounded-2xl p-6 shadow-lg text-white glass">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-          <div>
-            <h2 class="text-2xl font-bold">Sales Report</h2>
-            <p class="text-sm text-blue-100">Monthly Overview (₱)</p>
+    </aside>
+
+    <!-- Content Section -->
+    <main class="flex-1 p-8">
+      <!-- Dashboard Overview -->
+      <h2 class="text-3xl font-bold mb-8 text-gray-800">📊 Admin Dashboard</h2>
+
+      <!-- Sales Overview + Alerts -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <!-- Sales Overview -->
+        <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Sales Overview</h3>
+          <canvas id="salesChart" class="h-56"></canvas>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <!-- Low Stock -->
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">⚠️ Low Stock Alerts</h3>
+            <div class="space-y-4">
+              <div class="bg-gray-50 p-3 rounded-lg flex flex-col items-center shadow">
+                <img src="./admin/products/img/Led 12w.jpg" alt="Low Stock Item" class="h-24 w-full object-cover rounded-lg">
+                <p class="mt-2 text-sm text-gray-700">Indoor LED Bulb - Only 3 left</p>
+                <div class="flex gap-2 mt-2">
+                  <button class="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600">View Item</button>
+                  <button class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600">Order Item</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full mt-3 sm:mt-0" id="currentMonthLabel"></span>
-        </div>
-        <div class="bg-white rounded-xl p-4 shadow-inner h-64 sm:h-80">
-          <canvas id="salesChart"></canvas>
-        </div>
-        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          <div class="bg-white/10 rounded-lg p-3">
-            <p class="text-blue-100 text-sm">Total Sales</p>
-            <p id="kpiSales" class="text-xl font-bold">₱0</p>
-          </div>
-          <div class="bg-white/10 rounded-lg p-3">
-            <p class="text-blue-100 text-sm">Orders</p>
-            <p id="kpiOrders" class="text-xl font-bold">0</p>
-          </div>
-          <div class="bg-white/10 rounded-lg p-3">
-            <p class="text-blue-100 text-sm">New Customers</p>
-            <p id="kpiNew" class="text-xl font-bold">0</p>
-          </div>
-          <div class="bg-white/10 rounded-lg p-3">
-            <p class="text-blue-100 text-sm">Returning</p>
-            <p id="kpiReturning" class="text-xl font-bold">0</p>
+
+          <!-- Best Selling -->
+          <div class="bg-white p-6 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🏆 Best Selling Items</h3>
+            <div class="space-y-4">
+              <div class="bg-gray-50 p-3 rounded-lg flex flex-col items-center shadow">
+                <img src="./admin/products/img/Led 12w.jpg" alt="Best Seller" class="h-24 w-full object-cover rounded-lg">
+                <p class="mt-2 text-sm text-gray-700">Indoor LED Bulb - 500 sold</p>
+                <div class="flex gap-2 mt-2">
+                  <button class="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600">View Item</button>
+                  <button class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600">Order Item</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Right column cards -->
-      <div class="space-y-6">
-        <!-- Low Stock -->
-        <div class="bg-white rounded-xl p-6 shadow">
-          <span class="bg-purple-500 text-white text-xs px-3 py-1 rounded-full">Inventory</span>
-          <h2 class="text-xl font-bold mt-3 mb-2">Low Stock Alerts</h2>
-          <ul id="lowStockList" class="mt-2 space-y-2 text-gray-700 min-h-[84px]"></ul>
-          <button data-jump="#inventorySec" class="mt-4 w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600">View Inventory</button>
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+        <div class="bg-white p-6 rounded-2xl shadow-lg">
+          <h3 class="text-lg font-bold text-gray-800">Total Products</h3>
+          <p class="text-3xl font-extrabold text-yellow-600 mt-4">120</p>
         </div>
-        <!-- Best Sellers -->
-        <div class="bg-white rounded-xl p-6 shadow">
-          <span class="bg-blue-500 text-white text-xs px-3 py-1 rounded-full">Top Products</span>
-          <h2 class="text-xl font-bold mt-3">Best Sellers</h2>
-          <ul id="bestSellers" class="mt-3 space-y-2 text-gray-700 min-h-[84px]"></ul>
-          <button data-jump="#productsSec" class="mt-4 w-full bg-yellow-500 text-gray-900 py-2 rounded-lg hover:bg-yellow-400">All Products</button>
+        <div class="bg-white p-6 rounded-2xl shadow-lg">
+          <h3 class="text-lg font-bold text-gray-800">Orders</h3>
+          <p class="text-3xl font-extrabold text-yellow-600 mt-4">35</p>
         </div>
-      </div>
-
-      <!-- Item Activity Bar Chart -->
-      <div class="lg:col-span-3 bg-white rounded-2xl p-6 shadow">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl font-bold text-gray-800">Item Activity</h3>
-          <p class="text-sm text-gray-500">Adds vs. Updates vs. Deletes</p>
+        <div class="bg-white p-6 rounded-2xl shadow-lg">
+          <h3 class="text-lg font-bold text-gray-800">Users</h3>
+          <p class="text-3xl font-extrabold text-yellow-600 mt-4">58</p>
         </div>
-        <div class="h-72">
-          <canvas id="activityChart"></canvas>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Products Section ===== -->
-    <section id="productsSec" class="bg-white rounded-2xl p-6 shadow space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h2 class="text-2xl font-bold text-gray-800">Add / Edit Product</h2>
-        <div class="flex gap-2">
-          <button id="downloadCsv" class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900">
-            <i class="fa-solid fa-download mr-2"></i>Download CSV
-          </button>
-          <label class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 cursor-pointer">
-            <i class="fa-solid fa-upload mr-2"></i>Upload CSV
-            <input id="uploadCsv" type="file" accept=".csv" class="hidden">
-          </label>
+        <div class="bg-white p-6 rounded-2xl shadow-lg">
+          <h3 class="text-lg font-bold text-gray-800">Revenue</h3>
+          <p class="text-3xl font-extrabold text-yellow-600 mt-4">₱25,000</p>
         </div>
       </div>
 
-      <form id="productForm" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div>
-          <label class="block text-gray-700 font-semibold mb-1">Product Code</label>
-          <input name="code" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 outline-none" placeholder="e.g. LED12W">
+      <!-- Search Products -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg mb-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">🔎 Search Products</h3>
+        <div class="flex gap-3">
+          <div class="relative flex-1">
+            <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+              <i class="fas fa-search"></i>
+            </span>
+            <input type="text" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-yellow-400">
+          </div>
+          <button class="px-6 py-2 bg-yellow-500 text-white rounded-xl hover:bg-yellow-600">Search Now</button>
         </div>
-        <div>
-          <label class="block text-gray-700 font-semibold mb-1">Product Name</label>
-          <input name="name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 outline-none" placeholder="e.g. LED Bulb 12W">
-        </div>
-        <div>
-          <label class="block text-gray-700 font-semibold mb-1">Category</label>
-          <select name="category" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 outline-none">
-            <option value="">-- Select Category --</option>
-            <option>LED</option><option>Smart</option><option>Decorative</option>
-            <option>Tube</option><option>Vintage</option><option>Halogen</option>
-            <option>Flood</option><option>Outdoor</option>
-          </select>
-        </div>
-        <div class="md:col-span-2">
-          <label class="block text-gray-700 font-semibold mb-1">Description</label>
-          <textarea name="description" rows="2" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 outline-none" placeholder="Short details"></textarea>
-        </div>
-        <div>
-          <label class="block text-gray-700 font-semibold mb-1">Stock</label>
-          <input name="stock" type="number" min="0" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 outline-none" placeholder="e.g. 50">
-        </div>
-        <div>
-          <label class="block text-gray-700 font-semibold mb-1">Price (₱)</label>
-          <input name="price" type="number" min="0" step="0.01" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 outline-none" placeholder="e.g. 150">
-        </div>
-        <div class="md:col-span-2 lg:col-span-3 flex justify-end gap-3">
-          <button type="reset" class="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">Reset</button>
-          <button id="saveProductBtn" type="submit" class="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">Save Product</button>
-        </div>
-      </form>
-    </section>
+      </div>
 
-    <!-- ===== Inventory Section ===== -->
-    <section id="inventorySec" class="bg-white rounded-2xl p-6 shadow space-y-4">
-      <div class="flex items-center justify-between">
-        <h2 class="text-2xl font-bold text-gray-800">Inventory</h2>
-        <p id="invCount" class="text-gray-500"></p>
+      <!-- Supplier Identification -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg mb-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">📦 Supplier Identification</h3>
+        <div class="flex gap-3">
+          <div class="relative flex-1">
+            <span class="absolute inset-y-0 left-3 flex items-center text-gray-400">
+              <i class="fas fa-truck"></i>
+            </span>
+            <input type="text" placeholder="Search supplier..." class="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-yellow-400">
+          </div>
+          <button class="px-6 py-2 bg-yellow-500 text-white rounded-xl hover:bg-yellow-600">Search Now</button>
+        </div>
       </div>
-      <div class="overflow-x-auto">
-        <table class="min-w-full bg-white shadow rounded-lg overflow-hidden">
-          <thead class="bg-gray-800 text-white">
-            <tr>
-              <th class="py-3 px-4 text-left">Code</th>
-              <th class="py-3 px-4 text-left">Name</th>
-              <th class="py-3 px-4 text-left">Description</th>
-              <th class="py-3 px-4 text-left">Category</th>
-              <th class="py-3 px-4 text-left">Stock</th>
-              <th class="py-3 px-4 text-left">Price (₱)</th>
-              <th class="py-3 px-4 text-left">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="inventoryTable" class="divide-y divide-gray-200"></tbody>
-        </table>
+
+      <!-- Manage Products -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg mb-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">🛒 Manage Products</h3>
+        <button class="px-6 py-3 bg-yellow-500 text-white rounded-xl shadow hover:bg-yellow-600">+ Add New Product</button>
       </div>
-    </section>
-  </main>
+
+      <!-- Maintenance -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg mb-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">⚙️ Maintenance</h3>
+        <button onclick="window.location.href='maintenance.html'" class="px-6 py-3 bg-yellow-500 text-white rounded-xl shadow hover:bg-yellow-600">Go to Maintenance</button>
+      </div>
+    </main>
+  </div>
 
   <script src="./script/admin.js"></script>
 </body>
