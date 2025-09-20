@@ -12,7 +12,7 @@
 <body class="bg-gradient-to-br from-gray-50 to-gray-100 font-sans">
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white shadow-md">
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white shadow-md">
     <div class="flex items-center gap-2">
       <i class="fas fa-tools text-yellow-500 text-2xl"></i>
       <h1 class="text-2xl font-extrabold text-gray-800">Admin Panel</h1>
@@ -22,29 +22,28 @@
     <div class="flex items-center gap-4 relative">
       <!-- Burger Menu (Mobile) -->
       <button id="burgerBtn" class="md:hidden text-gray-700 text-2xl">
-        <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
       </button>
 
       <!-- Profile -->
       <div class="relative">
         <button id="adminMenuButton" class="focus:outline-none">
-          <img src="/img/admin.png" class="w-10 h-10 rounded-full border-2 border-yellow-400 shadow-md cursor-pointer" alt="Admin"/>
+        <img src="/img/admin.png" class="w-10 h-10 rounded-full border-2 border-yellow-400 shadow-md cursor-pointer" alt="Admin"/>
         </button>
         <div id="adminDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg py-2 z-50">
-          <a href="admin-profile.html" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Edit Profile</a>
-          
+        <a href="admin-profile.html" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100">Edit Profile</a>          
         </div>
       </div>
     </div>
-  </header>
+</header>
 
-  <!-- Main Layout -->
-  <div class="flex flex-col md:flex-row">
+<!-- Main Layout -->
+<div class="flex flex-col md:flex-row">
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="w-full md:w-1/5 p-6 bg-white border-r shadow-md hidden md:block">
-      <h2 class="font-semibold text-lg mb-4 text-gray-800">Admin Menu</h2>
-      <ul class="space-y-2 text-gray-700 font-medium">
+<aside id="sidebar" class="w-full md:w-1/5 p-6 bg-white border-r shadow-md hidden md:block">
+    <h2 class="font-semibold text-lg mb-4 text-gray-800">Admin Menu</h2>
+    <ul class="space-y-2 text-gray-700 font-medium">
   <li>
     <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-yellow-100 hover:text-yellow-600 transition">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,71 +66,71 @@
     </svg>Users</a></li>
   <li>
     <a href="reports.html" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-yellow-100 hover:text-yellow-600 transition">
-      <!-- Reports Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13v6M9 13h13m-13-4h13V7H9v2z" />
-      </svg>
-      Reports
-    </a>
-  </li>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6h13v6M9 13h13m-13-4h13V7H9v2z" />
+    </svg>Reports</a></li>
   <li>
     <a href="index.html" class="flex items-center gap-3 px-4 py-2 text-red-600 hover:bg-red-100 rounded-lg transition">
-      <!-- Logout Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1m0-4v-1a2 2 0 012-2h6a2 2 0 012 2v1" />
-      </svg>
-      Log Out
-    </a>
-  </li>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1m0-4v-1a2 2 0 012-2h6a2 2 0 012 2v1" />
+    </svg>Log Out</a></li>
 </ul>
 
-    </aside>
+</aside>
 
-    <!-- Content Section -->
-    <main class="flex-1 p-8">
-      <!-- Dashboard Overview -->
-      <h2 class="text-3xl font-bold mb-8 text-gray-800">📊 Admin Dashboard</h2>
+   <!-- Content Section -->
+<main class="flex-1 p-8">
+  <!-- Dashboard Overview -->
+  <h2 class="text-5xl font-bold mb-8 text-gray-800">📊 Admin Dashboard</h2>
 
-      <!-- Sales Overview + Alerts -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <!-- Sales Overview -->
-        <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-bold text-gray-800 mb-4">Sales Overview</h3>
-          <canvas id="salesChart" class="h-56"></canvas>
-        </div>
+  <!-- Sales Overview + Alerts -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+    <!-- Sales Overview -->
+    <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center justify-center">
+    <h3 class="text-5xl font-bold mb-8 text-gray-800 mb-6 text-center">Sales Overview</h3>
+    <div class="w-full flex items-center justify-center">
+        <canvas id="salesChart" class="w-full h-96"></canvas>
+    </div>
+    </div>
 
-        <div class="flex flex-col gap-6">
-          <!-- Low Stock -->
-          <div class="bg-white p-6 rounded-2xl shadow-lg">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">⚠️ Low Stock Alerts</h3>
-            <div class="space-y-4">
-              <div class="bg-gray-50 p-3 rounded-lg flex flex-col items-center shadow">
-                <img src="./admin/products/img/Led 12w.jpg" alt="Low Stock Item" class="h-24 w-full object-cover rounded-lg">
-                <p class="mt-2 text-sm text-gray-700">Indoor LED Bulb - Only 3 left</p>
-                <div class="flex gap-2 mt-2">
-                  <button class="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600">View Item</button>
-                  <button class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600">Order Item</button>
-                </div>
-              </div>
+    <div class="flex flex-col gap-6">
+      <!-- Low Stock -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">⚠️ Low Stock Alerts</h3>
+        <div class="space-y-4">
+          <div class="bg-gray-50 p-4 rounded-lg shadow flex flex-col items-center">
+            <!-- Bigger Image Box -->
+            <div class="w-full h-56 flex items-center justify-center bg-white rounded-lg border">
+              <img src="/img/bulb 2.jpg" alt="Low Stock Item" class="max-h-52 object-contain">
             </div>
-          </div>
-
-          <!-- Best Selling -->
-          <div class="bg-white p-6 rounded-2xl shadow-lg">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">🏆 Best Selling Items</h3>
-            <div class="space-y-4">
-              <div class="bg-gray-50 p-3 rounded-lg flex flex-col items-center shadow">
-                <img src="./admin/products/img/Led 12w.jpg" alt="Best Seller" class="h-24 w-full object-cover rounded-lg">
-                <p class="mt-2 text-sm text-gray-700">Indoor LED Bulb - 500 sold</p>
-                <div class="flex gap-2 mt-2">
-                  <button class="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600">View Item</button>
-                  <button class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600">Order Item</button>
-                </div>
-              </div>
+            <p class="mt-3 text-base font-medium text-gray-800 text-center">Indoor LED Bulb - Only 3 left</p>
+            <div class="flex gap-2 mt-3">
+              <button class="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600">View Item</button>
+              <button class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600">Order Item</button>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Best Selling -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">🏆 Best Selling Items</h3>
+        <div class="space-y-4">
+          <div class="bg-gray-50 p-4 rounded-lg shadow flex flex-col items-center">
+            <!-- Bigger Image Box -->
+            <div class="w-full h-56 flex items-center justify-center bg-white rounded-lg border">
+              <img src="/img/bulb.jpg" alt="Best Seller" class="max-h-52 object-contain">
+            </div>
+            <p class="mt-3 text-base font-medium text-gray-800 text-center">Indoor LED Bulb - 500 sold</p>
+            <div class="flex gap-2 mt-3">
+              <button class="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600">View Item</button>
+              <button class="px-3 py-1 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600">Order Item</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
       <!-- Stats -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
